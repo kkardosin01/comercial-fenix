@@ -2,15 +2,11 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { montarCsp } from "./lib/seguranca/csp";
 
-// Proxy roda só no /admin: gera nonce para a CSP estrita e renova a sessão do Supabase.
+// Proxy roda só no /admin: aplica a CSP do painel e renova a sessão do Supabase.
 // A autorização de verdade acontece no servidor (exigirAdmin) e no banco (RLS).
 export async function proxy(request: NextRequest) {
-  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
-  const csp = montarCsp({ nonce });
-
+  const csp = montarCsp({ painel: true });
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-nonce", nonce);
-  requestHeaders.set("Content-Security-Policy", csp);
 
   let response = NextResponse.next({ request: { headers: requestHeaders } });
 

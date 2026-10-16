@@ -43,7 +43,7 @@ src/
     seguranca/         CSP, rate limit, Turnstile, checagem de origem
     admin/             autenticação/2FA, entidades editáveis, upload seguro
     site.ts            telefone, e-mail, endereço, horário, logo Abbott
-  proxy.ts             nonce CSP + renovação de sessão no /admin
+  proxy.ts             CSP do painel + renovação de sessão no /admin
 supabase/
   migrations/          schema, RLS, triggers de auditoria, retenção, bucket
   seed.sql             áreas, produtos e clientes iniciais

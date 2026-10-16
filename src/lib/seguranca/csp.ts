@@ -1,4 +1,4 @@
-// Content-Security-Policy compartilhada entre next.config (páginas públicas) e proxy (admin com nonce).
+// Content-Security-Policy compartilhada entre next.config (páginas públicas) e proxy (painel /admin).
 const supabaseHost = (() => {
   try {
     return process.env.NEXT_PUBLIC_SUPABASE_URL ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).origin : "";
@@ -8,14 +8,13 @@ const supabaseHost = (() => {
 })();
 const dev = process.env.NODE_ENV !== "production";
 
-type Opcoes = { nonce?: string };
+type Opcoes = { painel?: boolean };
 
-export function montarCsp({ nonce }: Opcoes = {}) {
-  // Páginas públicas são estáticas (pré-renderizadas), então não há nonce por requisição:
-  // os scripts inline do Next exigem 'unsafe-inline'. O painel /admin, dinâmico, usa nonce + strict-dynamic.
-  const script = nonce
-    ? `'self' 'nonce-${nonce}' 'strict-dynamic'`
-    : `'self' 'unsafe-inline' https://challenges.cloudflare.com`;
+export function montarCsp({ painel = false }: Opcoes = {}) {
+  // Com Cache Components, até o /admin tem um "shell" pré-renderizado sem nonce por requisição,
+  // então os scripts inline do Next exigem 'unsafe-inline' (CSP com nonce bloquearia a hidratação).
+  // O painel só carrega scripts do próprio domínio e não permite iframes.
+  const script = painel ? `'self' 'unsafe-inline'` : `'self' 'unsafe-inline' https://challenges.cloudflare.com`;
   const diretivas: Record<string, string> = {
     "default-src": "'self'",
     "script-src": `${script}${dev ? " 'unsafe-eval'" : ""}`,
@@ -23,7 +22,7 @@ export function montarCsp({ nonce }: Opcoes = {}) {
     "img-src": `'self' data: blob: ${supabaseHost}`.trim(),
     "font-src": "'self'",
     "connect-src": `'self' ${supabaseHost} https://challenges.cloudflare.com${dev ? " ws: wss:" : ""}`.trim(),
-    "frame-src": "https://www.google.com https://challenges.cloudflare.com",
+    "frame-src": painel ? "'none'" : "https://www.google.com https://challenges.cloudflare.com",
     "frame-ancestors": "'none'",
     "form-action": "'self'",
     "base-uri": "'self'",

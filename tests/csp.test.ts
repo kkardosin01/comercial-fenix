@@ -8,10 +8,10 @@ describe("CSP", () => {
     expect(csp).toContain("object-src 'none'");
     expect(csp).toContain("https://www.google.com");
   });
-  it("usa nonce + strict-dynamic no admin", () => {
-    const csp = montarCsp({ nonce: "abc" });
-    expect(csp).toContain("'nonce-abc'");
-    expect(csp).toContain("'strict-dynamic'");
-    expect(csp).not.toMatch(/script-src[^;]*'unsafe-inline'/);
+  it("no painel, só scripts do próprio domínio e nenhum iframe", () => {
+    const csp = montarCsp({ painel: true });
+    expect(csp).toMatch(/script-src 'self' 'unsafe-inline'(;| 'unsafe-eval')/);
+    expect(csp).not.toContain("challenges.cloudflare.com;");
+    expect(csp).toContain("frame-src 'none'");
   });
 });

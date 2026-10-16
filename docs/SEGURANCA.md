@@ -5,9 +5,9 @@ Legenda: ✅ implementado e verificado localmente · 🔲 verificar após o depl
 ## Transporte e cabeçalhos
 - ✅ HSTS `max-age=63072000; includeSubDomains; preload` (`src/lib/seguranca/csp.ts`)
 - ✅ Content-Security-Policy restritiva: `default-src 'self'`, `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`; libera apenas Google Maps (iframe), Cloudflare Turnstile e o host do Supabase. Fontes self-hosted (next/font), sem chamadas ao Google Fonts.
-- ✅ Painel `/admin` com CSP por **nonce + strict-dynamic** (gerada no `src/proxy.ts`).
+- ✅ Painel `/admin` com CSP própria (`src/proxy.ts`): scripts só do próprio domínio e nenhum iframe permitido.
 - ✅ `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (câmera, microfone, geolocalização, pagamento, USB desativados), `Cross-Origin-Opener-Policy: same-origin`, cabeçalho `X-Powered-By` removido.
-- ℹ️ Páginas públicas são pré-renderizadas (melhor desempenho), então a CSP pública usa `'unsafe-inline'` em `script-src` para os scripts inline do Next.js. O risco é mitigado porque nenhum conteúdo do usuário é renderizado como HTML. Para eliminar o `'unsafe-inline'`, aplicar a CSP com nonce também no site público (custo: renderização dinâmica em todas as páginas).
+- ℹ️ Páginas públicas são pré-renderizadas (melhor desempenho), então a CSP pública usa `'unsafe-inline'` em `script-src` para os scripts inline do Next.js. O risco é mitigado porque nenhum conteúdo do usuário é renderizado como HTML. Uma CSP com nonce não é usada porque, com Cache Components, as páginas (inclusive o `/admin`) têm um shell pré-renderizado sem nonce, e o navegador bloquearia a hidratação.
 - 🔲 <https://securityheaders.com> → meta **A+**
 - 🔲 <https://www.ssllabs.com/ssltest/> → meta **A+** (TLS gerenciado pela Vercel)
 - 🔲 Enviar o domínio para <https://hstspreload.org>
