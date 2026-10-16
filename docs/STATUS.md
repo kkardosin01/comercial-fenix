@@ -35,13 +35,13 @@ Variáveis `NEXT_PUBLIC_*` precisam ser do tipo **Config** na Vercel (o tipo Sec
 - Domínio final (16/10/2026): securityheaders.com **A** (limitado pelo `'unsafe-inline'` da CSP, decisão abaixo); SSL Labs **A+** (TLS 1.2 e 1.3); Lighthouse em produção: mobile 95–96 / 100 / 100 / 100 (LCP simulado 2,8 s no título da home; real ~0,2 s), desktop 100 em tudo. A API pública do PageSpeed estava sem cota; usei o Lighthouse 12 local.
 
 ## Pendências
-1. Logos dos clientes (pelo painel, com autorização): nenhum dos 35 tem logo. Prioridade: os 10 em destaque (carrossel da home); só logos boas (SVG ou PNG transparente, 400 px+) e, no carrossel, todos com logo ou todos em texto.
-2. Opcional: adicionar cardosopedro0709@gmail.com como usuário no Search Console.
-3. Avaliar plano Vercel Pro (uso comercial).
-4. Opcional: remover `comercial-fenix.vercel.app` do widget Turnstile depois que o domínio estiver estável para todos.
+1. Opcional: adicionar cardosopedro0709@gmail.com como usuário no Search Console.
+2. Avaliar plano Vercel Pro (uso comercial).
+3. Opcional: remover `comercial-fenix.vercel.app` do widget Turnstile depois que o domínio estiver estável para todos.
 
 ## Decisões importantes
 - Next.js 16 com Cache Components: a CSP usa `'unsafe-inline'` em scripts (CSP com nonce quebrava a hidratação do shell pré-renderizado, inclusive no /admin).
 - Sem Supabase + Turnstile em produção, a página de contato mostra WhatsApp/telefone/e-mail no lugar do formulário (`src/lib/formulario.ts`).
 - Conteúdo público é cacheado ("use cache", 1h) e revalidado pelo painel ao salvar.
 - Sem HSTS preload por enquanto (16/10/2026): ganho pequeno (o HSTS de 2 anos já vale após a primeira visita), saída da lista leva meses e obrigaria HTTPS em todos os subdomínios futuros. O domínio sem www é redirecionado pela Vercel e só envia `max-age`, então o hstspreload.org recusa. Reavaliar se o site ganhar área de cliente ou pagamentos.
+- Clientes exibidos só pelo nome, sem logos (16/10/2026): o layout já foi feito para isso, fica mais uniforme e dispensa pedir autorização de marca a cada cliente. Se algum cliente enviar logo boa e autorizar, basta subir pelo painel (/admin → Clientes).
