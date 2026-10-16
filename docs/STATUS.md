@@ -27,16 +27,16 @@ Variáveis `NEXT_PUBLIC_*` precisam ser do tipo **Config** na Vercel (o tipo Sec
 ## Testado e funcionando
 - Formulário: Turnstile → grava em `leads` → e-mail de aviso para fenix.hospitalares@gmail.com e confirmação para o cliente (ambos chegaram).
 - Painel: login com senha + 2FA.
+- Rate limit no Upstash: login em produção depois do deploy b5ccf63 sem o aviso "[limite] Upstash não configurado" nos logs da Vercel.
 - Lighthouse local (mobile): desempenho 91–94; acessibilidade, boas práticas e SEO 100.
 
 ## Pendências
-1. Upstash Redis: banco criado e conectado; falta publicar o código que lê `KV_REST_API_*` e confirmar que o aviso "[limite] Upstash não configurado" sumiu dos logs.
-2. Retenção LGPD: ativar `pg_cron` no Supabase e agendar `select public.purgar_leads_antigos()` (ver README).
-3. Material do cliente: logo oficial da Abbott (`ABBOTT_LOGO` em `src/lib/site.ts`), logos dos clientes (pelo painel, com autorização), CNPJ (`SITE.cnpj`).
-4. Google Search Console (enviar `/sitemap.xml`) e Google Business Profile.
-5. Testes no domínio final: securityheaders.com, SSL Labs, hstspreload.org, PageSpeed Insights.
-6. Avaliar plano Vercel Pro (uso comercial).
-7. Opcional: remover `comercial-fenix.vercel.app` do widget Turnstile depois que o domínio estiver estável para todos.
+1. Retenção LGPD: ativar `pg_cron` no Supabase e agendar `select public.purgar_leads_antigos()` (ver README).
+2. Material do cliente: logo oficial da Abbott (`ABBOTT_LOGO` em `src/lib/site.ts`), logos dos clientes (pelo painel, com autorização), CNPJ (`SITE.cnpj`).
+3. Google Search Console (enviar `/sitemap.xml`) e Google Business Profile.
+4. Testes no domínio final: securityheaders.com, SSL Labs, hstspreload.org, PageSpeed Insights.
+5. Avaliar plano Vercel Pro (uso comercial).
+6. Opcional: remover `comercial-fenix.vercel.app` do widget Turnstile depois que o domínio estiver estável para todos.
 
 ## Decisões importantes
 - Next.js 16 com Cache Components: a CSP usa `'unsafe-inline'` em scripts (CSP com nonce quebrava a hidratação do shell pré-renderizado, inclusive no /admin).
