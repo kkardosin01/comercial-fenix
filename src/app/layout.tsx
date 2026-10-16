@@ -11,7 +11,7 @@ const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", displa
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Comercial Fênix | i-STAT 1 e cartuchos em Santa Catarina",
+    default: "Comercial Fênix SC Ltda | i-STAT 1 e cartuchos em Florianópolis e SC",
     template: "%s | Comercial Fênix",
   },
   description: SITE.descricao,

@@ -6,7 +6,9 @@ export function jsonLdNegocio() {
     "@type": ["MedicalBusiness", "LocalBusiness"],
     "@id": `${SITE.url}/#empresa`,
     name: SITE.nome,
+    legalName: SITE.nome,
     alternateName: SITE.nomeCurto,
+    taxID: SITE.cnpj,
     description: SITE.descricao,
     url: SITE.url,
     logo: `${SITE.url}/brand/logo-completa.png`,
@@ -35,6 +37,20 @@ export function jsonLdNegocio() {
       name: n,
     })),
     knowsAbout: ["i-STAT 1", "Testes point-of-care", "Gasometria", "Cartuchos i-STAT"],
+  };
+}
+
+// Nome do site nos resultados de busca (site name) e vínculo com a empresa.
+export function jsonLdSite() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE.url}/#site`,
+    name: SITE.nomeCurto,
+    alternateName: [SITE.nome, "Hospitalares Fênix"],
+    url: SITE.url,
+    inLanguage: "pt-BR",
+    publisher: { "@id": `${SITE.url}/#empresa` },
   };
 }
 
