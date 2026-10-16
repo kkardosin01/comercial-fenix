@@ -27,12 +27,13 @@ Variáveis `NEXT_PUBLIC_*` precisam ser do tipo **Config** na Vercel (o tipo Sec
 ## Testado e funcionando
 - Formulário: Turnstile → grava em `leads` → e-mail de aviso para fenix.hospitalares@gmail.com e confirmação para o cliente (ambos chegaram).
 - Painel: login com senha + 2FA.
+- CNPJ (33.280.738/0001-09) na Política de Privacidade e nos Termos; logo da Abbott (`public/parceiros/abbott.png`, fornecida pela Fênix) na home e na página do i-STAT 1.
 - Rate limit no Upstash: login em produção depois do deploy b5ccf63 sem o aviso "[limite] Upstash não configurado" nos logs da Vercel.
 - Lighthouse local (mobile): desempenho 91–94; acessibilidade, boas práticas e SEO 100.
 - Domínio final (16/10/2026): securityheaders.com **A** (limitado pelo `'unsafe-inline'` da CSP, decisão abaixo); SSL Labs **A+** (TLS 1.2 e 1.3); Lighthouse em produção: mobile 95–96 / 100 / 100 / 100 (LCP simulado 2,8 s no título da home; real ~0,2 s), desktop 100 em tudo. A API pública do PageSpeed estava sem cota; usei o Lighthouse 12 local.
 
 ## Pendências
-1. Material do cliente: logo oficial da Abbott (`ABBOTT_LOGO` em `src/lib/site.ts`), logos dos clientes (pelo painel, com autorização), CNPJ (`SITE.cnpj`).
+1. Logos dos clientes (pelo painel, com autorização): nenhum dos 35 tem logo. Prioridade: os 10 em destaque (carrossel da home); só logos boas (SVG ou PNG transparente, 400 px+) e, no carrossel, todos com logo ou todos em texto.
 2. Google Search Console (enviar `/sitemap.xml`) e Google Business Profile.
 3. Avaliar plano Vercel Pro (uso comercial).
 4. Opcional: remover `comercial-fenix.vercel.app` do widget Turnstile depois que o domínio estiver estável para todos.

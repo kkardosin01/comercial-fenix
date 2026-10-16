@@ -3,7 +3,7 @@ export const SITE = {
   nome: "Comercial Fênix SC Ltda",
   nomeCurto: "Comercial Fênix",
   // Preencha com o CNPJ (exibido na Política de Privacidade e nos Termos quando informado).
-  cnpj: "",
+  cnpj: "33.280.738/0001-09",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.hospitalaresfenix.com.br").replace(/\/$/, ""),
   descricao:
     "Fornecedor do analisador portátil i-STAT 1 e cartuchos (tecnologia Abbott i-STAT) em Florianópolis e Santa Catarina. Atendimento presencial, entrega ágil e reposição programada.",
@@ -50,7 +50,10 @@ export const AVISO_INFORMATIVO =
 export const AVISO_MARCAS = "i-STAT e Abbott são marcas registradas da Abbott.";
 export const FRASE_ABBOTT = "Trabalhamos com a tecnologia Abbott i-STAT";
 
-// Quando o arquivo oficial da logo Abbott for recebido, salve-o em /public/parceiros/
-// e informe o caminho aqui (ex.: "/parceiros/abbott.svg"). Enquanto for null, o site
+// Logo da Abbott (fornecida pela Comercial Fênix), em /public/parceiros/. Com null, o site
 // exibe apenas o texto, sem tentar reproduzir a marca.
-export const ABBOTT_LOGO: { src: string; width: number; height: number } | null = null;
+export const ABBOTT_LOGO: { src: string; width: number; height: number } | null = {
+  src: "/parceiros/abbott.png",
+  width: 800,
+  height: 200,
+};
