@@ -36,7 +36,7 @@ Variáveis `NEXT_PUBLIC_*` precisam ser do tipo **Config** na Vercel (o tipo Sec
 
 ## Pendências
 1. Opcional: adicionar cardosopedro0709@gmail.com como usuário no Search Console.
-2. Avaliar plano Vercel Pro (uso comercial).
+2. Assinar o plano Vercel Pro (equipe FinEz → Settings → Billing → Upgrade to Pro; ~US$ 20/mês por membro) quando decidirem — ver decisão abaixo.
 3. Opcional: remover `comercial-fenix.vercel.app` do widget Turnstile depois que o domínio estiver estável para todos.
 
 ## Decisões importantes
@@ -45,3 +45,4 @@ Variáveis `NEXT_PUBLIC_*` precisam ser do tipo **Config** na Vercel (o tipo Sec
 - Conteúdo público é cacheado ("use cache", 1h) e revalidado pelo painel ao salvar.
 - Sem HSTS preload por enquanto (16/10/2026): ganho pequeno (o HSTS de 2 anos já vale após a primeira visita), saída da lista leva meses e obrigaria HTTPS em todos os subdomínios futuros. O domínio sem www é redirecionado pela Vercel e só envia `max-age`, então o hstspreload.org recusa. Reavaliar se o site ganhar área de cliente ou pagamentos.
 - Clientes exibidos só pelo nome, sem logos (16/10/2026): o layout já foi feito para isso, fica mais uniforme e dispensa pedir autorização de marca a cada cliente. Se algum cliente enviar logo boa e autorizar, basta subir pelo painel (/admin → Clientes).
+- Vercel no plano Hobby por enquanto (16/10/2026): os termos da Vercel restringem o Hobby a uso não comercial, mas o risco para um site institucional de baixo tráfego é baixo. Assinar o Pro se a Vercel pedir, se o tráfego crescer ou quando o site passar a gerar orçamentos com frequência. Migrar para hospedagem gratuita (Netlify/Cloudflare) foi descartado: exigiria adaptadores para os recursos do Next.js 16 (Cache Components, painel) e trabalho de migração maior que o custo do Pro.
