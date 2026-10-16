@@ -4,7 +4,7 @@ export const SITE = {
   nomeCurto: "Comercial Fênix",
   // Preencha com o CNPJ (exibido na Política de Privacidade e nos Termos quando informado).
   cnpj: "",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://hospitalaresfenix.com.br").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.hospitalaresfenix.com.br").replace(/\/$/, ""),
   descricao:
     "Fornecedor do analisador portátil i-STAT 1 e cartuchos (tecnologia Abbott i-STAT) em Florianópolis e Santa Catarina. Atendimento presencial, entrega ágil e reposição programada.",
   telefoneExibicao: "(48) 99915-2015",

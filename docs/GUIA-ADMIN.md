@@ -1,6 +1,6 @@
 # Guia rápido do painel administrativo
 
-Endereço: **https://hospitalaresfenix.com.br/admin**
+Endereço: **https://www.hospitalaresfenix.com.br/admin**
 
 ## Primeiro acesso
 

@@ -95,7 +95,7 @@ A cada envio do formulário: o lead é gravado, a equipe recebe a notificação 
 4. *Settings → Domains*: adicione `hospitalaresfenix.com.br` e `www.hospitalaresfenix.com.br` (redirecionando para o domínio principal).
 5. *Firewall*: ative o **Vercel Firewall / Attack Challenge Mode** quando necessário e crie uma regra de rate limit para `POST /contato` e `/admin/*` (proteção DDoS da plataforma já é automática).
 6. *Analytics*: ative **Web Analytics** no projeto. O script só é carregado após o visitante aceitar estatísticas no banner.
-7. Após o primeiro deploy: envie `https://hospitalaresfenix.com.br` para <https://hstspreload.org> (o cabeçalho HSTS já tem `preload`).
+7. Após o primeiro deploy: envie `https://www.hospitalaresfenix.com.br` para <https://hstspreload.org> (o cabeçalho HSTS já tem `preload`).
 
 ## 7. SEO e Google
 
