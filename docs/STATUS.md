@@ -29,15 +29,16 @@ Variáveis `NEXT_PUBLIC_*` precisam ser do tipo **Config** na Vercel (o tipo Sec
 - Painel: login com senha + 2FA.
 - Rate limit no Upstash: login em produção depois do deploy b5ccf63 sem o aviso "[limite] Upstash não configurado" nos logs da Vercel.
 - Lighthouse local (mobile): desempenho 91–94; acessibilidade, boas práticas e SEO 100.
+- Domínio final (16/10/2026): securityheaders.com **A** (limitado pelo `'unsafe-inline'` da CSP, decisão abaixo); SSL Labs **A+** (TLS 1.2 e 1.3); Lighthouse em produção: mobile 95–96 / 100 / 100 / 100 (LCP simulado 2,8 s no título da home; real ~0,2 s), desktop 100 em tudo. A API pública do PageSpeed estava sem cota; usei o Lighthouse 12 local.
 
 ## Pendências
 1. Material do cliente: logo oficial da Abbott (`ABBOTT_LOGO` em `src/lib/site.ts`), logos dos clientes (pelo painel, com autorização), CNPJ (`SITE.cnpj`).
 2. Google Search Console (enviar `/sitemap.xml`) e Google Business Profile.
-3. Testes no domínio final: securityheaders.com, SSL Labs, hstspreload.org, PageSpeed Insights.
-4. Avaliar plano Vercel Pro (uso comercial).
-5. Opcional: remover `comercial-fenix.vercel.app` do widget Turnstile depois que o domínio estiver estável para todos.
+3. Avaliar plano Vercel Pro (uso comercial).
+4. Opcional: remover `comercial-fenix.vercel.app` do widget Turnstile depois que o domínio estiver estável para todos.
 
 ## Decisões importantes
 - Next.js 16 com Cache Components: a CSP usa `'unsafe-inline'` em scripts (CSP com nonce quebrava a hidratação do shell pré-renderizado, inclusive no /admin).
 - Sem Supabase + Turnstile em produção, a página de contato mostra WhatsApp/telefone/e-mail no lugar do formulário (`src/lib/formulario.ts`).
 - Conteúdo público é cacheado ("use cache", 1h) e revalidado pelo painel ao salvar.
+- Sem HSTS preload por enquanto (16/10/2026): ganho pequeno (o HSTS de 2 anos já vale após a primeira visita), saída da lista leva meses e obrigaria HTTPS em todos os subdomínios futuros. O domínio sem www é redirecionado pela Vercel e só envia `max-age`, então o hstspreload.org recusa. Reavaliar se o site ganhar área de cliente ou pagamentos.
