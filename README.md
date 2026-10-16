@@ -85,7 +85,7 @@ A cada envio do formulário: o lead é gravado, a equipe recebe a notificação 
 ## 5. Anti-robô e rate limit
 
 - **Turnstile:** crie um widget em Cloudflare → Turnstile para o domínio e preencha `NEXT_PUBLIC_TURNSTILE_SITE_KEY` e `TURNSTILE_SECRET_KEY`. Em produção, sem a chave secreta, o formulário recusa envios (de propósito).
-- **Upstash:** crie um banco Redis (região próxima de `gru1`) e preencha `UPSTASH_REDIS_REST_URL` e `UPSTASH_REDIS_REST_TOKEN`. Sem ele, o limite funciona só em memória por instância.
+- **Upstash:** crie um banco Redis (região próxima de `gru1`) e preencha `UPSTASH_REDIS_REST_URL` e `UPSTASH_REDIS_REST_TOKEN` — ou instale pela Vercel (Storage → Upstash for Redis), que cria `KV_REST_API_URL` e `KV_REST_API_TOKEN`, também aceitos. Sem ele, o limite funciona só em memória por instância.
 
 ## 6. Deploy na Vercel
 

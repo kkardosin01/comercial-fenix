@@ -4,10 +4,10 @@ import { Redis } from "@upstash/redis";
 
 type Janela = `${number} ${"s" | "m" | "h"}`;
 
-const redis =
-  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
-    ? new Redis({ url: process.env.UPSTASH_REDIS_REST_URL, token: process.env.UPSTASH_REDIS_REST_TOKEN })
-    : null;
+// Aceita os nomes do Upstash e os da integração da Vercel (KV_REST_API_*).
+const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+const redis = url && token ? new Redis({ url, token }) : null;
 
 let avisou = false;
 const avisar = () => {
