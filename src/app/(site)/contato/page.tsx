@@ -3,6 +3,8 @@ import { Suspense } from "react";
 import { Clock, Mail, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
 import { CabecalhoPagina } from "@/components/ui/CabecalhoPagina";
 import { FormularioOrcamento } from "@/components/contato/FormularioOrcamento";
+import { ContatoDireto } from "@/components/contato/ContatoDireto";
+import { formularioDisponivel } from "@/lib/formulario";
 import { Reveal } from "@/components/ui/Reveal";
 import { getAreas, getProdutos } from "@/lib/data";
 import { ENDERECO_COMPLETO, MAPS_DIRECTIONS_URL, MAPS_EMBED_URL, SITE, whatsappLink } from "@/lib/site";
@@ -105,12 +107,20 @@ export default async function ContatoPage() {
           <div id="orcamento" className="scroll-mt-28">
             <div className="rounded-[2rem] border border-white/[0.07] bg-carvao/60 p-6 md:p-10">
               <h2 className="text-4xl uppercase md:text-5xl">Solicitar orçamento</h2>
-              <p className="mt-3 mb-8 text-cinza">
-                Campos com <span className="text-ouro">*</span> são obrigatórios. Retornamos em horário comercial.
-              </p>
-              <Suspense fallback={<div className="h-[640px] animate-pulse rounded-2xl bg-white/[0.03]" />}>
-                <FormularioOrcamento areas={opcoesAreas} produtos={opcoesProdutos} />
-              </Suspense>
+              {formularioDisponivel() ? (
+                <>
+                  <p className="mt-3 mb-8 text-cinza">
+                    Campos com <span className="text-ouro">*</span> são obrigatórios. Retornamos em horário comercial.
+                  </p>
+                  <Suspense fallback={<div className="h-[640px] animate-pulse rounded-2xl bg-white/[0.03]" />}>
+                    <FormularioOrcamento areas={opcoesAreas} produtos={opcoesProdutos} />
+                  </Suspense>
+                </>
+              ) : (
+                <div className="mt-6">
+                  <ContatoDireto />
+                </div>
+              )}
             </div>
           </div>
         </div>
