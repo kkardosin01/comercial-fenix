@@ -9,6 +9,7 @@ import { leadSchema } from "@/lib/validacao";
 
 export type EstadoLead = {
   status: "inicial" | "sucesso" | "erro";
+  emailEnviado?: boolean;
   mensagem?: string;
   erros?: Partial<Record<string, string>>;
   valores?: Record<string, string | string[]>;
@@ -85,5 +86,5 @@ export async function enviarLead(_prev: EstadoLead, form: FormData): Promise<Est
   const r = await enviarEmailsLead(lead, { areaNome: area?.nome ?? "", produtosNomes: produtosValidos.map((p) => p.nome) });
   if (!db && !r.ok) console.info("[lead] (dev) lead recebido:", { ...lead, email: "***" });
 
-  return { status: "sucesso" };
+  return { status: "sucesso", emailEnviado: r.ok };
 }

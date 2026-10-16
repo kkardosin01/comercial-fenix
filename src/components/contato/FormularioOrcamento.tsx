@@ -43,7 +43,7 @@ export function FormularioOrcamento({ areas, produtos }: Props) {
     }
   }, [estado]);
 
-  if (estado.status === "sucesso") return <Sucesso />;
+  if (estado.status === "sucesso") return <Sucesso emailEnviado={estado.emailEnviado} />;
 
   const campo = (nome: string, rotulo: string, props: React.InputHTMLAttributes<HTMLInputElement> = {}, obrigatorio = true) => (
     <div>
@@ -206,7 +206,7 @@ export function FormularioOrcamento({ areas, produtos }: Props) {
   );
 }
 
-function Sucesso() {
+function Sucesso({ emailEnviado }: { emailEnviado?: boolean }) {
   return (
     <AnimatePresence>
       <m.div
@@ -254,7 +254,7 @@ function Sucesso() {
           transition={{ delay: 1.05 }}
           className="mt-4 max-w-md text-cinza"
         >
-          Obrigado pelo contato. Enviamos uma confirmação para o seu e-mail e retornaremos em breve, em horário
+          Obrigado pelo contato.{emailEnviado ? " Enviamos uma confirmação para o seu e-mail." : ""} Retornaremos em breve, em horário
           comercial. Se preferir, fale agora pelo{" "}
           <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="text-ouro underline underline-offset-4">
             WhatsApp {SITE.telefoneExibicao}
