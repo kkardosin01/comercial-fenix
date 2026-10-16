@@ -52,7 +52,7 @@ export function CtaFinal() {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 size-5 shrink-0 text-ouro" aria-hidden />
                 <span>
-                  {SITE.endereco.logradouro}, {SITE.endereco.bairro}
+                  {SITE.endereco.logradouro}, {SITE.endereco.sala}, {SITE.endereco.bairro}
                   <br />
                   {SITE.endereco.cidade}/{SITE.endereco.uf} · {SITE.horario}
                 </span>

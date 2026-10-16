@@ -15,7 +15,7 @@ export function jsonLdNegocio() {
     email: SITE.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: `${SITE.endereco.logradouro} — ${SITE.endereco.predio}`,
+      streetAddress: `${SITE.endereco.logradouro}, ${SITE.endereco.sala} — ${SITE.endereco.predio}`,
       addressLocality: SITE.endereco.cidade,
       addressRegion: SITE.endereco.uf,
       postalCode: SITE.endereco.cep,

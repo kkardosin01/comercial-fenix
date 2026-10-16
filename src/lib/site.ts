@@ -14,6 +14,7 @@ export const SITE = {
   endereco: {
     predio: "Centro Empresarial Vitória Office",
     logradouro: "R. Dr. Heitor Blum, 310",
+    sala: "Sala 707",
     bairro: "Estreito",
     cidade: "Florianópolis",
     uf: "SC",
@@ -25,7 +26,7 @@ export const SITE = {
   estadosAtendidos: ["SC", "PR", "RS", "SP", "CE"] as const,
 } as const;
 
-export const ENDERECO_COMPLETO = `${SITE.endereco.predio} — ${SITE.endereco.logradouro}, ${SITE.endereco.bairro}, ${SITE.endereco.cidade}/${SITE.endereco.uf}, CEP ${SITE.endereco.cep}`;
+export const ENDERECO_COMPLETO = `${SITE.endereco.predio} — ${SITE.endereco.logradouro}, ${SITE.endereco.sala}, ${SITE.endereco.bairro}, ${SITE.endereco.cidade}/${SITE.endereco.uf}, CEP ${SITE.endereco.cep}`;
 
 const mapsQuery = encodeURIComponent(
   `${SITE.endereco.logradouro}, ${SITE.endereco.bairro}, ${SITE.endereco.cidade} - ${SITE.endereco.uf}, ${SITE.endereco.cep}`,
