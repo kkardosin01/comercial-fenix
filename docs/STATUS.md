@@ -13,9 +13,9 @@ Leia este arquivo antes de continuar o trabalho em uma sessão nova.
 | Vercel | equipe `fin-ez`, projeto `comercial-fenix` (plano Hobby) | O conector MCP da Vercel **não** tem acesso a essa equipe: usar o painel pelo Chrome |
 | DNS | GoDaddy (`ns55/ns56.domaincontrol.com`) | A @ → 216.198.79.1; CNAME www → 9f9919f76876e981.vercel-dns-017.com; registros do Resend (resend._domainkey, rsend, send, _dmarc); TXT @ `google-site-verification=…` (não remover: mantém a verificação do Search Console) |
 | Google Business Profile | conta fenix.hospitalares@gmail.com, "Comercial Fênix SC Ltda." (já existia e está confirmado) | Categoria Fornecedor de Artigos Hospitalares; endereço público com Sala 707; área: SC, PR, RS, SP, MG, Fortaleza, Florianópolis; site trocado para https://www em 16/10/2026 (aguardava revisão do Google) |
-| Google Search Console | propriedade de domínio `hospitalaresfenix.com.br`, proprietária fenix.hospitalares@gmail.com | Verificada por DNS em 16/10/2026; sitemap enviado (`/sitemap.xml`); home já indexada |
+| Google Search Console | propriedade de domínio `hospitalaresfenix.com.br`, proprietária fenix.hospitalares@gmail.com | Verificada por DNS em 16/10/2026; sitemap enviado (`/sitemap.xml`); home já indexada; cardosopedro0709@gmail.com com permissão Total |
 | Supabase | projeto `comercial-fenix`, ref `gxbqwnsmfuntbmfltqey`, região sa-east-1 | Migrations aplicadas (`supabase/migrations`), seed carregado (5 produtos, 12 áreas, 35 clientes). Cadastro público **desativado**. Retenção LGPD: `pg_cron` ativo, job `purga-leads` diário às 04:00 UTC (apaga leads com mais de 24 meses). O conector MCP do Supabase funciona |
-| Cloudflare Turnstile | widget "Site Comercial Fenix" | Hostnames: hospitalaresfenix.com.br e comercial-fenix.vercel.app |
+| Cloudflare Turnstile | widget "Site Comercial Fenix" | Hostname: hospitalaresfenix.com.br (cobre o www). `comercial-fenix.vercel.app` removido em 16/10/2026: o formulário só funciona no domínio oficial |
 | Resend | domínio hospitalaresfenix.com.br (verificado, sa-east-1) | Chave `site-comercial-fenix` (só envio). Remetente: contato@hospitalaresfenix.com.br |
 | Upstash Redis | banco `comercial-fenix-redis`, integração da Vercel (Storage), região gru1, plano Free | Conectado ao projeto com prefixo `KV` (Production e Preview); `src/lib/seguranca/limite.ts` lê `KV_REST_API_URL`/`KV_REST_API_TOKEN` |
 
@@ -35,9 +35,7 @@ Variáveis `NEXT_PUBLIC_*` precisam ser do tipo **Config** na Vercel (o tipo Sec
 - Domínio final (16/10/2026): securityheaders.com **A** (limitado pelo `'unsafe-inline'` da CSP, decisão abaixo); SSL Labs **A+** (TLS 1.2 e 1.3); Lighthouse em produção: mobile 95–96 / 100 / 100 / 100 (LCP simulado 2,8 s no título da home; real ~0,2 s), desktop 100 em tudo. A API pública do PageSpeed estava sem cota; usei o Lighthouse 12 local.
 
 ## Pendências
-1. Opcional: adicionar cardosopedro0709@gmail.com como usuário no Search Console.
-2. Assinar o plano Vercel Pro (equipe FinEz → Settings → Billing → Upgrade to Pro; ~US$ 20/mês por membro) quando decidirem — ver decisão abaixo.
-3. Opcional: remover `comercial-fenix.vercel.app` do widget Turnstile depois que o domínio estiver estável para todos.
+1. Assinar o plano Vercel Pro (equipe FinEz → Settings → Billing → Upgrade to Pro; ~US$ 20/mês por membro) quando decidirem — ver decisão abaixo.
 
 ## Decisões importantes
 - Next.js 16 com Cache Components: a CSP usa `'unsafe-inline'` em scripts (CSP com nonce quebrava a hidratação do shell pré-renderizado, inclusive no /admin).
