@@ -10,7 +10,7 @@ Leia este arquivo antes de continuar o trabalho em uma sessão nova.
 ## Serviços configurados
 | Serviço | Onde | Observações |
 | --- | --- | --- |
-| Vercel | equipe `fin-ez`, projeto `comercial-fenix` (plano Hobby) | O conector MCP da Vercel **não** tem acesso a essa equipe: usar o painel pelo Chrome |
+| Vercel | equipe `fin-ez`, projeto `comercial-fenix` (plano Hobby); funções em `gru1` (São Paulo, via `vercel.json`) | O conector MCP da Vercel **não** tem acesso a essa equipe: usar o painel pelo Chrome |
 | DNS | GoDaddy (`ns55/ns56.domaincontrol.com`) | A @ → 216.198.79.1; CNAME www → 9f9919f76876e981.vercel-dns-017.com; registros do Resend (resend._domainkey, rsend, send, _dmarc); TXT @ `google-site-verification=…` (não remover: mantém a verificação do Search Console) |
 | Google Business Profile | conta fenix.hospitalares@gmail.com, "Comercial Fênix SC Ltda." (já existia e está confirmado) | Categoria Fornecedor de Artigos Hospitalares; endereço público com Sala 707; área: SC, PR, RS, SP, MG, Fortaleza, Florianópolis; site trocado para https://www em 16/10/2026 (aguardava revisão do Google) |
 | Google Search Console | propriedade de domínio `hospitalaresfenix.com.br`, proprietária fenix.hospitalares@gmail.com | Verificada por DNS em 16/10/2026; sitemap enviado (`/sitemap.xml`); home já indexada; cardosopedro0709@gmail.com com permissão Total |
