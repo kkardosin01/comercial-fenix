@@ -115,3 +115,11 @@ A cada envio do formulário: o lead é gravado, a equipe recebe a notificação 
 
 - [Guia rápido do painel administrativo](docs/GUIA-ADMIN.md)
 - [Checklist de segurança](docs/SEGURANCA.md)
+
+---
+
+## Autor e licença
+
+Desenvolvido por **Pedro Cardoso** · [GitHub](https://github.com/kkardosin01) · [LinkedIn](https://www.linkedin.com/in/cardosoopedroo/).
+
+Código-fonte do site da Comercial Fênix SC Ltda, publicado para fins de portfólio e consulta. Todos os direitos reservados.
