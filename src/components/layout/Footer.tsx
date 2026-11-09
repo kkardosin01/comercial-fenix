@@ -68,7 +68,7 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col gap-4 text-xs text-cinza md:flex-row md:items-center md:justify-between">
           <p>
-            © {SITE.nome}. Todos os direitos reservados. {AVISO_MARCAS}
+            © {SITE.nome} ({SITE.nomeAlternativo}). Todos os direitos reservados. {AVISO_MARCAS}
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
             <li>

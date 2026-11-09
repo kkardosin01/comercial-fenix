@@ -2,11 +2,14 @@
 export const SITE = {
   nome: "Comercial Fênix SC Ltda",
   nomeCurto: "Comercial Fênix",
+  // Nome pelo qual a empresa também é procurada (domínio e e-mail usam "hospitalares").
+  nomeAlternativo: "Fênix Hospitalares",
+  nomeAlternativoInvertido: "Hospitalares Fênix",
   // Preencha com o CNPJ (exibido na Política de Privacidade e nos Termos quando informado).
   cnpj: "33.280.738/0001-09",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.hospitalaresfenix.com.br").replace(/\/$/, ""),
   descricao:
-    "Fornecedor do analisador portátil i-STAT 1 e cartuchos (tecnologia Abbott i-STAT) em Florianópolis e Santa Catarina. Atendimento presencial, entrega ágil e reposição programada.",
+    "Comercial Fênix SC Ltda (Fênix Hospitalares): i-STAT 1 e cartuchos (tecnologia Abbott i-STAT) em Florianópolis e SC. Atendimento presencial e entrega ágil.",
   telefoneExibicao: "(48) 99915-2015",
   telefoneE164: "+5548999152015",
   whatsapp: "https://wa.me/5548999152015",

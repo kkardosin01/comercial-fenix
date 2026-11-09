@@ -10,7 +10,7 @@ import { Titulo } from "@/components/ui/Titulo";
 export const metadata: Metadata = {
   title: "Sobre nós — fornecedor i-STAT em Florianópolis",
   description:
-    "A Comercial Fênix SC Ltda é uma empresa catarinense especializada no fornecimento do analisador i-STAT 1 e cartuchos, com atendimento presencial e reposição programada.",
+    "A Comercial Fênix SC Ltda, também conhecida como Fênix Hospitalares, fornece o analisador i-STAT 1 e cartuchos, com atendimento presencial e reposição programada.",
   alternates: { canonical: "/sobre" },
 };
 

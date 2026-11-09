@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Comercial Fênix SC Ltda",
     short_name: "Comercial Fênix",
-    description: "i-STAT 1 e cartuchos em Santa Catarina",
+    description: "Comercial Fênix SC Ltda e Fênix Hospitalares: i-STAT 1 e cartuchos em Santa Catarina",
     start_url: "/",
     display: "standalone",
     background_color: "#0A0A0A",
