@@ -12,7 +12,7 @@ import { ENDERECO_COMPLETO, MAPS_DIRECTIONS_URL, MAPS_EMBED_URL, SITE, whatsappL
 export const metadata: Metadata = {
   title: "Contato e orçamento — fornecedor i-STAT em Florianópolis",
   description:
-    "Solicite um orçamento do i-STAT 1 e cartuchos. Telefone e WhatsApp (48) 99915-2015, e-mail e endereço no Estreito, Florianópolis/SC.",
+    "Orçamento de i-STAT 1 e cartuchos com a Comercial Fênix SC Ltda (Fênix Hospitalares). WhatsApp (48) 99915-2015 e endereço no Estreito, Florianópolis/SC.",
   alternates: { canonical: "/contato" },
 };
 

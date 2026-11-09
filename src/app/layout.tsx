@@ -11,12 +11,17 @@ const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", displa
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Comercial Fênix SC Ltda | i-STAT 1 e cartuchos em Florianópolis e SC",
+    default: "Comercial Fênix SC Ltda | Fênix Hospitalares — i-STAT 1",
     template: "%s | Comercial Fênix",
   },
   description: SITE.descricao,
   applicationName: SITE.nomeCurto,
   keywords: [
+    "Comercial Fênix SC Ltda",
+    "Comercial Fênix Florianópolis",
+    "Fênix Hospitalares",
+    "Fênix Hospitalares Florianópolis",
+    "Hospitalares Fênix",
     "i-STAT 1 Santa Catarina",
     "Abbott i-STAT",
     "cartucho CG8+",

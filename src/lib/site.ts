@@ -2,11 +2,14 @@
 export const SITE = {
   nome: "Comercial Fênix SC Ltda",
   nomeCurto: "Comercial Fênix",
+  // Nome pelo qual a empresa também é procurada (domínio e e-mail usam "hospitalares").
+  nomeAlternativo: "Fênix Hospitalares",
+  nomeAlternativoInvertido: "Hospitalares Fênix",
   // Preencha com o CNPJ (exibido na Política de Privacidade e nos Termos quando informado).
   cnpj: "33.280.738/0001-09",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.hospitalaresfenix.com.br").replace(/\/$/, ""),
   descricao:
-    "Fornecedor do analisador portátil i-STAT 1 e cartuchos (tecnologia Abbott i-STAT) em Florianópolis e Santa Catarina. Atendimento presencial, entrega ágil e reposição programada.",
+    "Comercial Fênix SC Ltda (Fênix Hospitalares): i-STAT 1 e cartuchos (tecnologia Abbott i-STAT) em Florianópolis e SC. Atendimento presencial e entrega ágil.",
   telefoneExibicao: "(48) 99915-2015",
   telefoneE164: "+5548999152015",
   whatsapp: "https://wa.me/5548999152015",
@@ -49,6 +52,8 @@ export const NAV = [
 export const AVISO_INFORMATIVO =
   "Informações de caráter informativo. Indicações e uso conforme instruções do fabricante e avaliação do profissional responsável.";
 export const AVISO_MARCAS = "i-STAT e Abbott são marcas registradas da Abbott.";
+export const AVISO_REVENDA =
+  "A Comercial Fênix SC Ltda é uma revenda independente e não é distribuidora oficial da Abbott.";
 export const FRASE_ABBOTT = "Trabalhamos com a tecnologia Abbott i-STAT";
 
 // Logo da Abbott (fornecida pela Comercial Fênix), em /public/parceiros/. Com null, o site
