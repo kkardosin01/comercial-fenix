@@ -6,6 +6,7 @@ import { Pilares } from "@/components/home/Pilares";
 import { CtaFinal } from "@/components/home/CtaFinal";
 import { Reveal } from "@/components/ui/Reveal";
 import { Titulo } from "@/components/ui/Titulo";
+import { AVISO_REVENDA } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Sobre nós — fornecedor i-STAT em Florianópolis",
@@ -59,6 +60,9 @@ export default function SobrePage() {
                 Como nos dedicamos exclusivamente à linha i-STAT, conhecemos o sistema a fundo e conseguimos orientar a
                 escolha dos cartuchos mais adequados a cada área.
               </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <p className="text-base text-cinza">{AVISO_REVENDA}</p>
             </Reveal>
           </div>
         </div>

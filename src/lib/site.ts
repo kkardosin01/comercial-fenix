@@ -52,6 +52,8 @@ export const NAV = [
 export const AVISO_INFORMATIVO =
   "Informações de caráter informativo. Indicações e uso conforme instruções do fabricante e avaliação do profissional responsável.";
 export const AVISO_MARCAS = "i-STAT e Abbott são marcas registradas da Abbott.";
+export const AVISO_REVENDA =
+  "A Comercial Fênix SC Ltda é uma revenda independente e não é distribuidora oficial da Abbott.";
 export const FRASE_ABBOTT = "Trabalhamos com a tecnologia Abbott i-STAT";
 
 // Logo da Abbott (fornecida pela Comercial Fênix), em /public/parceiros/. Com null, o site

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import logo from "../../../public/brand/logo-completa.png";
-import { AVISO_MARCAS, ENDERECO_COMPLETO, NAV, SITE } from "@/lib/site";
+import { AVISO_MARCAS, AVISO_REVENDA, ENDERECO_COMPLETO, NAV, SITE } from "@/lib/site";
 import { BotaoPreferenciasCookies } from "./ConsentimentoCookies";
 
 export function Footer() {
@@ -68,7 +68,7 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col gap-4 text-xs text-cinza md:flex-row md:items-center md:justify-between">
           <p>
-            © {SITE.nome} ({SITE.nomeAlternativo}). Todos os direitos reservados. {AVISO_MARCAS}
+            © {SITE.nome} ({SITE.nomeAlternativo}). Todos os direitos reservados. {AVISO_MARCAS} {AVISO_REVENDA}
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
             <li>
